@@ -1,0 +1,151 @@
+section:first-child {
+  padding-top: 130px;
+  @media (max-width: $pc) {
+    padding-top: 110px;
+  }
+  @media (max-width: $tablet) {
+    padding-top: 100px;
+  }
+  @media (max-width: $mobile) {
+    padding-top: 80px;
+  }
+  @media (max-width: $mobileSmall) {
+    padding-top: 60px;
+  }
+}
+.phone-number {
+  font-size: rem(16);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  @media (max-width: $mobile) {
+    span {
+      display: none;
+    }
+    &::before {
+      color: #000 !important;
+      margin-right: 0 !important;
+      font-size: rem(24);
+    }
+  }
+  &::before {
+    color: $accentColor;
+    margin-right: rem(12);
+  }
+}
+.btns {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 210px);
+  @media (max-width: $mobileSmall) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.btn {
+  text-align: center;
+  background: $primaryBtnColor;
+  padding: rem(15) rem(30);
+  font-family: "Courier New";
+  font-style: normal;
+  font-weight: 700;
+  font-size: rem(14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  min-height: 46px;
+  text-transform: uppercase;
+}
+.btn_green {
+  background: $secondaryBtnColor;
+}
+
+.table-title {
+  max-width: rem(610);
+  font-weight: 700;
+  @include adaptiveValue("font-size", 24, 16);
+  color: $superLightGrayColor;
+}
+.table-suptitle {
+  max-width: none;
+}
+.table-price {
+  font-weight: 700;
+  font-size: rem(24);
+  color: $primaryBtnColor;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: rem(15);
+  white-space: nowrap;
+}
+.table-unit {
+  &::before {
+    content: "/";
+    padding-right: rem(15);
+  }
+}
+
+// мои чекбоксы
+// ! Checkbox
+// .checkbox {
+//     &:not(:last-child) {
+//         margin-bottom: rem(15);
+//     }
+//     &__label {
+//         cursor: pointer;
+//         display: flex;
+//         align-items: center;
+//     }
+
+//     &__input {
+//         appearance: none;
+//         &:checked + .checkbox__fake:before {
+//             transform: scale(1);
+//         }
+//         &:checked ~ .checkbox__text {
+//             color: rgba(42, 42, 42, 1);
+//             font-weight: 700;
+//         }
+//         &:focus + .checkbox__fake {
+//             transition: all 0.2s ease 0s;
+//             border: 1px solid rgba($accentColor, $alpha: 1);
+//             box-shadow: 0 0 10px 0 $accentColor;
+//         }
+//         &:checked:focus + .checkbox__fake {
+//             border: 1px solid rgba($mainColor, $alpha: 0.38);
+//             box-shadow: 0 0 0 0;
+//         }
+//     }
+//     &__text {
+//         transition: all 0.2s ease 0s;
+//         color: rgba(42, 42, 42, 0.85);
+//     }
+//     &__fake {
+//         width: rem(21);
+//         height: rem(21);
+//         flex: 0 0 21px;
+//         border: 1px solid rgba($mainColor, $alpha: 0.38);
+//         border-radius: rem(7);
+//         margin-right: rem(13);
+//         &::before {
+//             transition: all 0.2s ease 0s;
+//             content: "";
+//             position: absolute;
+//             width: 20px;
+//             height: 20px;
+//             background: url("@img/icons/check.svg") center center no-repeat;
+//             transform: scale(0);
+//         }
+//     }
+// }
+//! html checkbox
+// <li class="filter-catalog__item checkbox">
+//                           <label class="checkbox__label">
+//                             <input class="checkbox__input" type="checkbox" name="form[]" value="Вечериночные игры">
+//                             <span class="checkbox__fake"></span>
+//                             <span class="checkbox__text">Вечериночные игры</span>
+//                           </label>
+//                         </li>

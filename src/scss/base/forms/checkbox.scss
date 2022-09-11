@@ -1,0 +1,92 @@
+.checkbox {
+	position: relative;
+	&:not(:last-child) {
+		margin-bottom: em(5);
+	}
+	// .checkbox__input
+	&__input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+		&:focus + .checkbox__label:before {
+			box-shadow: 0 0 5px #000;
+		}
+		&:checked + .checkbox__label:before {
+			background: #000;
+		}
+	}
+	// .checkbox__label
+	&__label {
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		position: relative;
+		gap: 10px;
+		&:before {
+			content: "";
+			align-self: flex-start;
+			flex: 0 0 20px;
+			width: 20px;
+			height: 20px;
+			border: 1px solid #a7a9ac;
+		}
+	}
+	// .checkbox__text
+	&__text {
+	}
+}
+
+// мои чекбоксы
+// ! Checkbox
+// .checkbox {
+//     &:not(:last-child) {
+//         margin-bottom: rem(15);
+//     }
+//     &__label {
+//         cursor: pointer;
+//         display: flex;
+//         align-items: center;
+//     }
+
+//     &__input {
+//         appearance: none;
+//         &:checked + .checkbox__fake:before {
+//             transform: scale(1);
+//         }
+//         &:checked ~ .checkbox__text {
+//             color: rgba(42, 42, 42, 1);
+//             font-weight: 700;
+//         }
+//         &:focus + .checkbox__fake {
+//             transition: all 0.2s ease 0s;
+//             border: 1px solid rgba($accentColor, $alpha: 1);
+//             box-shadow: 0 0 10px 0 $accentColor;
+//         }
+//         &:checked:focus + .checkbox__fake {
+//             border: 1px solid rgba($mainColor, $alpha: 0.38);
+//             box-shadow: 0 0 0 0;
+//         }
+//     }
+//     &__text {
+//         transition: all 0.2s ease 0s;
+//         color: rgba(42, 42, 42, 0.85);
+//     }
+//     &__fake {
+//         width: rem(21);
+//         height: rem(21);
+//         flex: 0 0 21px;
+//         border: 1px solid rgba($mainColor, $alpha: 0.38);
+//         border-radius: rem(7);
+//         margin-right: rem(13);
+//         &::before {
+//             transition: all 0.2s ease 0s;
+//             content: "";
+//             position: absolute;
+//             width: 20px;
+//             height: 20px;
+//             background: url("@img/icons/check.svg") center center no-repeat;
+//             transform: scale(0);
+//         }
+//     }
+// }
