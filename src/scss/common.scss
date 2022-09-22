@@ -13,12 +13,23 @@ section:first-child {
     padding-top: 60px;
   }
 }
-.phone-number {
-  font-size: rem(16);
+._title {
+  max-width: 603px;
+  font-family: "Montserrat";
   font-weight: 700;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
+  @include adaptiveValue("font-size", 36, 24);
+  line-height: 120%;
+  text-transform: uppercase;
+  color: $mainColor;
+  @include adaptiveValue("margin-bottom", 90, 16);
+}
+
+.logo {
+  img {
+    @include adaptiveValue("width", 200, 100);
+  }
+}
+.phone-number_header {
   @media (max-width: $mobile) {
     span {
       display: none;
@@ -29,11 +40,26 @@ section:first-child {
       font-size: rem(24);
     }
   }
+}
+.mail-address,
+.phone-number,
+.shop-address {
+  font-size: rem(16);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
   &::before {
     color: $accentColor;
     margin-right: rem(12);
   }
 }
+.shop-address {
+  font-size: rem(16);
+  line-height: 140%;
+  font-weight: 400;
+}
+
 .btns {
   display: grid;
   gap: 10px;
@@ -42,7 +68,6 @@ section:first-child {
     grid-template-columns: 1fr;
   }
 }
-
 .btn {
   text-align: center;
   background: $primaryBtnColor;
@@ -61,12 +86,51 @@ section:first-child {
 .btn_green {
   background: $secondaryBtnColor;
 }
+.btn_link {
+  font-weight: 700;
+  font-size: rem(14);
+  text-transform: uppercase;
+  color: $accentColor;
+  display: inline-block;
+  span {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: rem(-2);
+      right: 0;
+      background: $accentColor;
+      height: 1.6px;
+    }
+  }
+}
+
+._icon-arrow-circle-right {
+  display: inline-block;
+  width: rem(60);
+  height: rem(60);
+  border-radius: 50%;
+  border: 1px solid rgba(10, 9, 13, 0.5);
+  position: relative;
+  &::before {
+    color: rgba(10, 9, 13, 0.5);
+    font-size: rem(60);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 
 .table-title {
   max-width: rem(610);
   font-weight: 700;
   @include adaptiveValue("font-size", 24, 16);
-  color: $superLightGrayColor;
+  color: $grayLightColor;
+  @media (max-width: $tablet) {
+    margin-bottom: rem(8);
+  }
 }
 .table-suptitle {
   max-width: none;

@@ -11,7 +11,10 @@ import Swiper, {
   Navigation,
   Pagination,
   EffectFade,
-  Autoplay
+  Parallax,
+  Autoplay,
+  Controller,
+  Thumbs
 } from 'swiper'
 /*
 Основниые модули слайдера:
@@ -31,64 +34,208 @@ import '../../scss/base/swiper.scss'
 // Инициализация слайдеров
 function initSliders() {
   // Перечень слайдеров
-  // Проверяем, есть ли слайдер на стронице
   if (document.querySelector('.main-slider__slider')) {
-    // Указываем скласс нужного слайдера
-    // Создаем слайдер
     const mainSlider = new Swiper('.main-slider__slider', {
-      // Указываем скласс нужного слайдера
-      // Подключаем модули слайдера
-      // для конкретного случая
-      modules: [Navigation, Pagination, EffectFade, Autoplay],
+      modules: [Navigation, Pagination, EffectFade, Parallax, Autoplay],
       observer: true,
       observeParents: true,
       slidesPerView: 1,
       spaceBetween: 0,
       // autoHeight: true,
-      speed: 400,
+      speed: 800,
       loop: true,
-      //touchRatio: 0,
-      //simulateTouch: false,
-      //loop: true,
-      //preloadImages: false,
-      //lazy: true,
-			pagination: {
-				el: '.main-slider__pagination',
-				clickable: true,
-				type: 'bullets'
-			},
+      parallax: true,
+      pagination: {
+        el: '.main-slider__pagination',
+        clickable: true,
+        type: 'bullets'
+      },
       effect: 'fade',
-      // autoplay: {
-      // 	delay: 3000,
-      // 	disableOnInteraction: false,
-      // },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
       navigation: {
         prevEl: '.main-slider__button-prev',
         nextEl: '.main-slider__button-next'
       },
+      breakpoints: {
+        // when window width is >= 320px
+        320: {
+          speed: 400
+        },
+        // when window width is >= 480px
+        480: {
+          speed: 500
+        },
+        // when window width is >= 640px
+        640: {
+          speed: 600
+        },
+        991: {
+          speed: 700
+        }
+      }
     })
-		let mySliderNumberNullCurrent = document.querySelector('.main-slider__number-null-current')
-		let mySliderNumberNullTotal = document.querySelector('.main-slider__number-null-total')
+    let mySliderNumberNullCurrent = document.querySelector(
+      '.main-slider__number-null-current'
+    )
+    let mySliderNumberNullTotal = document.querySelector(
+      '.main-slider__number-null-total'
+    )
 
     let mySliderAllSlides = document.querySelector('.main-slider__total-num')
-    let mySliderCurrentSlide = document.querySelector('.main-slider__current-num')
+    let mySliderCurrentSlide = document.querySelector(
+      '.main-slider__current-num'
+    )
 
-		if(mainSlider.slides.length - 2 >= 10) {
-			mySliderNumberNullTotal.remove()
-		}
+    if (mainSlider.slides.length - 2 >= 10) {
+      mySliderNumberNullTotal.remove()
+    }
 
     mySliderAllSlides.innerHTML = mainSlider.slides.length - 2
     function currentSlideCount() {
       let currentSlide = ++mainSlider.realIndex
       mySliderCurrentSlide.innerHTML = currentSlide
-			if(currentSlide>=10) {
-				mySliderNumberNullCurrent.style = "display: none"
-			} else {
-				mySliderNumberNullCurrent.style = "display: inline"
-			}
+      if (currentSlide >= 10) {
+        mySliderNumberNullCurrent.style = 'display: none'
+      } else {
+        mySliderNumberNullCurrent.style = 'display: inline'
+      }
     }
-		currentSlideCount()
+    currentSlideCount()
     mainSlider.on('slideChange', currentSlideCount)
+  }
+  // ! Мини слайдер (projects)
+  if (document.querySelector('.projects-slider-mini')) {
+    // let projectSlider = document.querySelector('.projects-slider')
+    const projectMiniSlider = new Swiper('.projects-slider-mini', {
+      observer: true,
+      observeParents: true,
+      slidesPerView: 'auto',
+      spaceBetween: 0,
+      breakpoints: {
+        320: {
+          direction: 'horizontal'
+          // slidesPerView: 'auto',
+          // loop: true
+          // autoScrollOffset: 1
+          // slidesPerView: 3
+        },
+        850: {
+          loop: false,
+          direction: 'vertical'
+          // slidesPerView: 'auto'
+        }
+      }
+    })
+  }
+  // ! Главный слайдер (projects)
+  if (document.querySelector('.projects-slider')) {
+    // let projectMiniSlider = document.querySelector('.main-slider__slider')
+    const projectSlider = new Swiper('.projects-slider', {
+      modules: [Navigation, Autoplay, Thumbs],
+      observer: true,
+      observeParents: true,
+      slidesPerView: 'auto',
+      spaceBetween: 62,
+      speed: 800,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      thumbs: {
+        swiper: {
+          el: '.projects-slider-mini',
+          
+        }
+      },
+
+      breakpoints: {
+        320: {
+          speed: 300,
+          navigation: false,
+          spaceBetween: 10
+        },
+        650: {
+          speed: 500,
+          // slidesPerView: 2,
+          spaceBetween: 10
+        },
+        850: {
+          speed: 600,
+          spaceBetween: 40,
+          loop: false,
+          navigation: {
+            prevEl: '.projects-slider-mini__button_prev ',
+            nextEl: '.projects-slider-mini__button_next'
+          }
+        },
+        1300: {
+          spaceBetween: 62
+        }
+      }
+    })
+  }
+
+  // ! Мини слайдер (working)
+  if (document.querySelector('.working-slider-mini')) {
+    const workingMiniSlider = new Swiper('.working-slider-mini', {
+      observer: true,
+      observeParents: true,
+      spaceBetween: 0,
+      breakpoints: {
+        320: {
+          direction: 'horizontal',
+          slidesPerView: 'auto',
+          spaceBetween: 80
+        },
+        850: {
+          direction: 'vertical',
+          slidesPerView: 'auto'
+        }
+      }
+    })
+  }
+  // ! Главный слайдер (working)
+  if (document.querySelector('.working-slider')) {
+    // let projectMiniSlider = document.querySelector('.main-slider__slider')
+    const workingSlider = new Swiper('.working-slider', {
+      modules: [Navigation, Parallax, Autoplay, Thumbs, EffectFade],
+      observer: true,
+      observeParents: true,
+      slidesPerView: 'auto',
+      spaceBetween: 0,
+      parallax: true,
+      effect: 'fade',
+      // autoplay: {
+      //   delay: 5000,
+      //   disableOnInteraction: false
+      // },
+      thumbs: {
+        swiper: {
+          el: '.working-slider-mini',
+          multipleActiveThumbs: true,
+          autoScrollOffset: 1,
+        }
+      },
+      navigation: {
+        prevEl: '.working-slider__button_prev',
+        nextEl: '.working-slider__button_next'
+      },
+      breakpoints: {
+        320: {
+          speed: 300
+        },
+        650: {
+          speed: 500
+        },
+        850: {
+          speed: 600
+        }
+      }
+    })
   }
 }
 
