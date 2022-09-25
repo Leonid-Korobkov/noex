@@ -263,124 +263,6 @@
   background: $accentColor;
 }
 
-//! engin-build (2 блок)
-.body-main-section {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  @media (max-width: $mobile) {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: rem(32);
-  }
-  @media (min-width: $mobile) {
-    // .body-main-section__column-left
-    &__column-left {
-      width: percent(344, 1200);
-    }
-    // .body-main-section__column-right
-    &__column-right {
-      width: percent(780, 1200);
-    }
-  }
-  // .body-main-section__title
-  &__title {
-    font-weight: 700;
-    line-height: 140%;
-    color: $accentColor;
-    // max-width: rem(345);
-  }
-  // .body-main-section__text
-  &__text {
-    line-height: 160%;
-    p:not(:last-child) {
-      margin-bottom: rem(27);
-    }
-  }
-  // .body-main-section__link
-  &__link {
-    margin-top: rem(27);
-  }
-}
-.item-main-section {
-  padding: rem(30) 0;
-  @media (max-width: $tablet) {
-    padding: rem(16) 0;
-  }
-  &:first-child {
-    padding-top: 0;
-  }
-  border-bottom: 1px solid $grayColor;
-  // .item-main-section__title
-  &__title {
-    font-family: "Montserrat";
-    font-weight: 500;
-    font-size: rem(24);
-    line-height: 140%;
-    margin-bottom: rem(20);
-  }
-  // .item-main-section__text
-  &__text {
-    line-height: 140%;
-    font-size: rem(16);
-  }
-}
-.item-main-section-spoller {
-  border-bottom: 1px solid $grayColor;
-  // .item-main-section-spoller__title
-  &__title {
-    font-family: "Montserrat";
-    font-weight: 500;
-    font-size: rem(24);
-    line-height: 140%;
-    position: relative;
-    padding: rem(20) 0 rem(20) rem(36);
-    display: flex;
-    width: 100%;
-    align-items: center;
-    text-align: left;
-    cursor: pointer;
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      left: 8px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: rem(1);
-      height: rem(16);
-      background: $mainColor;
-      transition: all 0.3s ease 0s;
-    }
-    &::after {
-      transform: translateY(-50%) rotate(90deg);
-    }
-  }
-  .item-main-section-spoller__title._spoller-active::after {
-    transform: translateY(-50%) rotate(270deg);
-  }
-  .item-main-section-spoller__title._spoller-active::before {
-    transform: translateY(-50%) rotate(90deg);
-  }
-  // .item-main-section-spoller__text
-  &__text {
-    line-height: 140%;
-    font-size: rem(16);
-    padding: rem(20) 0 rem(20) rem(20);
-    margin: 0 0 rem(20) rem(36);
-    position: relative;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 1px;
-      background: $accentColor;
-    }
-  }
-}
-
 //! engin-kind (3 блок)
 .engin-kind {
   // .engin-kind__body
@@ -1056,11 +938,7 @@
   &__file {
     margin-bottom: rem(40);
   }
-  // .form-estimate__btn
-  &__btn {
-  }
 }
-
 //! contacts (14 блок)
 .contacts {
   // .contacts__body

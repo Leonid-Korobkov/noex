@@ -115,6 +115,9 @@
 				background: #e5e5e5;
 			}
 		}
+		.menu__link_active {
+			color: $accentColor;
+		}
 		@media (any-hover: hover) {
 			background: $mainColor;
 			background-clip: text;

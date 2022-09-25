@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Проекты"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+      <section class="page__header-info page-header-ingo">
+        <div class="page-header-ingo__container">
+          <div class="page-header-ingo__body">
+            <div class="page-header-ingo__title">Проекты</div>
+            <a href="index.html" class="page-header-ingo__back-link _icon-arrow-right">На главную</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="page__projects projects">
+        <div class="projects__container">
+          <nav class="projects__filter filter">
+            <ul class="filter__list">
+              <li class="filter__item filter__item_active">За все время</li>
+              <li class="filter__item">2010-2020</li>
+              <li class="filter__item">2000-2010</li>
+              <li class="filter__item">1990-2000</li>
+            </ul>
+          </nav>
+          <ul class="projects__list">
+            <li class="projects__item projects-item">
+              <div class="projects-item__date">1993-2015</div>
+              <a href="#" class="projects-item__img">
+                <img src="@img/project/moscow-city.jpg" alt="Москва-Сити">
+              </a>
+              <div class="projects-item__info">
+                <div class="projects-item__title">Москва-Сити</div>
+                <div class="projects-item__text">Оказание полного спектра услуг на двенадцати основных объектах комплекса «Москва сити</div>
+                <a href="#" class="projects-item__btn btn_link"><span>Подробнее</span></a>
+              </div>
+            </li>
+            <li class="projects__item projects-item">
+              <div class="projects-item__date">2013-2014</div>
+              <a href="#" class="projects-item__img">
+                <img src="@img/project/atk.jpg" alt="АТК на Кутузовском">
+              </a>
+              <div class="projects-item__info">
+                <div class="projects-item__title">АТК на Кутузовском</div>
+                <div class="projects-item__text">Актуализация инженерно-геологических изысканий на участке строительства административно-торгового комплекса</div>
+                <a href="#" class="projects-item__btn btn_link"><span>Подробнее</span></a>
+              </div>
+            </li>
+            <li class="projects__item projects-item">
+              <div class="projects-item__date">2012</div>
+              <a href="#" class="projects-item__img">
+                <img src="@img/project/zil.jpg" alt="Завод ЗИЛ">
+              </a>
+              <div class="projects-item__info">
+                <div class="projects-item__title">Завод ЗИЛ</div>
+                <div class="projects-item__text">Реконструкция легендарного автогиганта, завода «ЗИЛ» Бурение инженерно-геологических скеважин до глубины 70 м, геофизические исследования</div>
+                <a href="#" class="projects-item__btn btn_link"><span>Подробнее</span></a>
+              </div>
+            </li>
+            <li class="projects__item projects-item">
+              <div class="projects-item__date">2012-2013</div>
+              <a href="#" class="projects-item__img">
+                <img src="@img/project/station.jpg" alt="Станция Окская">
+              </a>
+              <div class="projects-item__info">
+                <div class="projects-item__title">Станция Окская</div>
+                <div class="projects-item__text">Бурение, геофизический каротаж, грунтовые и штамповые испытания, оборудование скважин, опытно-фильтрационные работы, лабораторные исследования, моделирование</div>
+                <a href="#" class="projects-item__btn btn_link"><span>Подробнее</span></a>
+              </div>
+            </li>
+            <li class="projects__item projects-item">
+              <div class="projects-item__date">2010-2011</div>
+              <a href="#" class="projects-item__img">
+                <img src="@img/project/aviapark.jpg" alt="ТРК Авиапарк">
+              </a>
+              <div class="projects-item__info">
+                <div class="projects-item__title">ТРК Авиапарк</div>
+                <div class="projects-item__text">Бурение, испытания грунтов методами статического зондирования, штамповые испытания, лабораторные исследования</div>
+                <a href="#" class="projects-item__btn btn_link"><span>Подробнее</span></a>
+              </div>
+            </li>
+            <li class="projects__item projects-item">
+              <div class="projects-item__date">2007-2010</div>
+              <a href="#" class="projects-item__img">
+                <img src="@img/project/stadium.jpg" alt="Стадион Спартак">
+              </a>
+              <div class="projects-item__info">
+                <div class="projects-item__title">Стадион Спартак</div>
+                <div class="projects-item__text">Инженерно-геологические изыскания, в результате которых приняты и воплощаются в жизнь оригинальные архитектурные и инженерные решения</div>
+                <a href="#" class="projects-item__btn btn_link"><span>Подробнее</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_popup.htm',{})
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

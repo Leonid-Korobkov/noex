@@ -114,6 +114,7 @@ function initSliders() {
       observeParents: true,
       slidesPerView: 'auto',
       spaceBetween: 0,
+      
       breakpoints: {
         320: {
           direction: 'horizontal'
@@ -144,6 +145,10 @@ function initSliders() {
       autoplay: {
         delay: 3000,
         disableOnInteraction: false
+      },
+      navigation: {
+        prevEl: '.projects-slider-mini__button_prev',
+        nextEl: '.projects-slider-mini__button_next'
       },
       thumbs: {
         swiper: {

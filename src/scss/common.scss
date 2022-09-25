@@ -29,6 +29,7 @@ section:first-child {
     @include adaptiveValue("width", 200, 100);
   }
 }
+
 .phone-number_header {
   @media (max-width: $mobile) {
     span {
@@ -149,6 +150,295 @@ section:first-child {
   &::before {
     content: "/";
     padding-right: rem(15);
+  }
+}
+
+.page-header-ingo {
+  // .page-header-ingo__body
+  &__body {
+    @include adaptiveValue("padding-top", 60, 24);
+    @include adaptiveValue("padding-bottom", 60, 24);
+    @include adaptiveValue("margin-bottom", 60, 24);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $grayColor;
+    @media (max-width: em(600)) {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+  // .page-header-ingo__title
+  &__title {
+    font-family: "Montserrat";
+    font-weight: 700;
+    @include adaptiveValue("font-size", 48, 24);
+    line-height: 120%;
+    text-transform: uppercase;
+    @media (max-width: em(600)) {
+      margin-bottom: rem(16);
+    }
+  }
+  // .page-header-ingo__back-link
+  &__back-link {
+    font-weight: 700;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    &::before {
+      transform: rotate(180deg);
+      margin-right: rem(20);
+    }
+  }
+}
+
+.body-main-section {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  @media (max-width: $mobile) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(32);
+  }
+  @media (min-width: $mobile) {
+    // .body-main-section__column-left
+    &__column-left {
+      width: percent(344, 1200);
+    }
+    // .body-main-section__column-right
+    &__column-right {
+      width: percent(780, 1200);
+    }
+  }
+  // .body-main-section__title
+  &__title {
+    font-weight: 700;
+    line-height: 140%;
+    color: $accentColor;
+    @media (min-width:$mobile){
+      margin-bottom: rem(20);
+    }
+  }
+  // .body-main-section__text
+  &__text {
+    line-height: 160%;
+    p:not(:last-child) {
+      margin-bottom: rem(27);
+    }
+    // .body-main-section__text_bold
+    &_bold {
+      font-family: "Montserrat";
+      font-weight: 700;
+      font-size: rem(24);
+      line-height: 140%;
+      @include adaptiveValue("margin-bottom", 60, 24, $maxWidthContainer, 768, 1);
+      @media (max-width: $mobile) {
+        font-weight: 500;
+        margin-bottom: rem(24);
+      }
+    }
+  }
+  // .body-main-section__link
+  &__link {
+    margin-top: rem(27);
+  }
+  // .body-main-section__images
+  &__images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: rem(65);
+    @include adaptiveValue("gap", 65, 16, $maxWidthContainer, 768, 1);
+    @media (max-width: em(600)) {
+      grid-template-columns: 1fr;
+    }
+  }
+  // .body-main-section__img
+  &__img {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      object-fit: cover;
+    }
+  }
+}
+.item-main-section {
+  padding: rem(30) 0;
+  @media (max-width: $tablet) {
+    padding: rem(16) 0;
+  }
+  &:first-child {
+    padding-top: 0;
+  }
+  border-bottom: 1px solid $grayColor;
+  // .item-main-section__title
+  &__title {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: rem(24);
+    line-height: 140%;
+    margin-bottom: rem(20);
+  }
+  // .item-main-section__text
+  &__text {
+    line-height: 140%;
+    font-size: rem(16);
+  }
+}
+.item-main-section-spoller {
+  border-bottom: 1px solid $grayColor;
+  // .item-main-section-spoller__title
+  &__title {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: rem(24);
+    line-height: 140%;
+    position: relative;
+    padding: rem(20) 0 rem(20) rem(36);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: rem(1);
+      height: rem(16);
+      background: $mainColor;
+      transition: all 0.3s ease 0s;
+    }
+    &::after {
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+  .item-main-section-spoller__title._spoller-active::after {
+    transform: translateY(-50%) rotate(270deg);
+  }
+  .item-main-section-spoller__title._spoller-active::before {
+    transform: translateY(-50%) rotate(90deg);
+  }
+  // .item-main-section-spoller__text
+  &__text {
+    line-height: 140%;
+    font-size: rem(16);
+    padding: rem(20) 0 rem(20) rem(20);
+    margin: 0 0 rem(20) rem(36);
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 1px;
+      background: $accentColor;
+    }
+  }
+}
+.table-main-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @media (max-width: em(600)) {
+    grid-template-columns: 1fr;
+  }
+  // .table-main-section__item
+  &__item {
+    @media (max-width: em(600)) {
+      padding: rem(24) rem(36.5);
+      border-bottom: 1px solid $grayColor;
+      &:first-child {
+        border-top: 1px solid $grayColor;
+      }
+    }
+    @media (min-width: em(600)) {
+      &:nth-child(1) {
+        padding: 0 rem(35) rem(30) 0;
+        border-bottom: 1px solid $grayColor;
+      }
+      &:nth-child(2) {
+        padding: 0 rem(50) rem(30);
+        border-bottom: 1px solid $grayColor;
+        border-left: 1px solid $grayColor;
+        border-right: 1px solid $grayColor;
+      }
+      &:nth-child(3) {
+        padding: 0 0 rem(30) rem(50);
+        border-bottom: 1px solid $grayColor;
+      }
+      &:nth-child(4) {
+        padding: rem(30) rem(35) 0 0;
+      }
+      &:nth-child(5) {
+        padding: rem(30) rem(50) 0;
+        border-left: 1px solid $grayColor;
+        border-right: 1px solid $grayColor;
+      }
+      &:nth-child(6) {
+        padding: rem(30) 0 0 rem(50);
+      }
+    }
+  }
+  // .table-main-section__number
+  &__number {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: rem(48);
+    line-height: 120%;
+  }
+  // .table-main-section__text
+  &__text {
+    line-height: 160%;
+  }
+}
+
+.filter {
+  @include adaptiveValue("margin-bottom", 60, 32);
+  overflow-x: auto;
+  // .filter__list
+  &__list {
+    display: grid;
+    grid-auto-flow: column;
+    gap: rem(40);
+    align-items: center;
+    font-weight: 700;
+    line-height: 140%;
+    justify-content: start;
+  }
+  // .filter__item
+  &__item {
+    white-space: nowrap;
+    padding: rem(10) rem(20);
+    &_active {
+      background: $grayLightColor;
+    }
+  }
+}
+
+[class*="__img"] {
+  @media (any-hover: hover) {
+    overflow: hidden;
+    img {
+      transition: scale 0.9s ease 0s;
+    }
+    &:hover {
+      img {
+        scale: 1.1;
+      }
+    }
   }
 }
 
