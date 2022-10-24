@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"404"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+
+      <section class="page__header-info page-header-info">
+        <div class="page-header-info__container">
+          <div class="page-header-info__body">
+            <a href="index.html" class="page-header-info__back-link _icon-arrow-right">На главную</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="page__error error">
+        <div class="error__container">
+          <div class="error__body" style="background: url('@img/404/background.svg') center center no-repeat;">
+            <div class="error__title">404</div>
+            <div class="error__subtitle">Упс... страница не найдена</div>
+            <a href="#" class="error__btn btn btn_yellow">Перейти На главную</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_popup.htm',{})
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

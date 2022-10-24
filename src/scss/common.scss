@@ -26,6 +26,7 @@ section:first-child {
 
 .logo {
   img {
+    transition: all 0.3s ease 0s;
     @include adaptiveValue("width", 200, 100);
   }
 }
@@ -153,8 +154,8 @@ section:first-child {
   }
 }
 
-.page-header-ingo {
-  // .page-header-ingo__body
+.page-header-info {
+  // .page-header-info__body
   &__body {
     @include adaptiveValue("padding-top", 60, 24);
     @include adaptiveValue("padding-bottom", 60, 24);
@@ -168,23 +169,25 @@ section:first-child {
       align-items: start;
     }
   }
-  // .page-header-ingo__title
+  // .page-header-info__title
   &__title {
     font-family: "Montserrat";
     font-weight: 700;
     @include adaptiveValue("font-size", 48, 24);
     line-height: 120%;
     text-transform: uppercase;
+    margin-right: rem(20);
     @media (max-width: em(600)) {
       margin-bottom: rem(16);
     }
   }
-  // .page-header-ingo__back-link
+  // .page-header-info__back-link
   &__back-link {
     font-weight: 700;
     line-height: 140%;
     display: flex;
     align-items: center;
+    white-space: nowrap;
     &::before {
       transform: rotate(180deg);
       margin-right: rem(20);
@@ -197,8 +200,11 @@ section:first-child {
   width: 100%;
   justify-content: space-between;
   @media (max-width: $mobile) {
-    display: grid;
-    grid-template-columns: 1fr;
+    // display: grid;
+    // grid-template-columns: 1fr;
+    // gap: rem(32);
+    display: flex;
+    flex-direction: column;
     gap: rem(32);
   }
   @media (min-width: $mobile) {
@@ -216,7 +222,7 @@ section:first-child {
     font-weight: 700;
     line-height: 140%;
     color: $accentColor;
-    @media (min-width:$mobile){
+    @media (min-width: $mobile) {
       margin-bottom: rem(20);
     }
   }
@@ -324,6 +330,11 @@ section:first-child {
     &::after {
       transform: translateY(-50%) rotate(90deg);
     }
+    @media (max-width: em(600)) {
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+    }
   }
   .item-main-section-spoller__title._spoller-active::after {
     transform: translateY(-50%) rotate(270deg);
@@ -346,6 +357,59 @@ section:first-child {
       height: 100%;
       width: 1px;
       background: $accentColor;
+    }
+  }
+  // .item-main-section-spoller__list
+  &__list {
+    padding: rem(20) 0 rem(20) rem(20);
+    margin: 0 0 rem(20) rem(36);
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 1px;
+      background: #dfd1a7;
+    }
+  }
+  // .item-main-section-spoller__item
+  &__item {
+    padding-bottom: rem(30);
+    border-bottom: 1px solid $grayColor;
+    &:not(:first-child) {
+      padding-top: rem(30);
+    }
+    @media (max-width: $mobile) {
+      padding-bottom: rem(15);
+      &:not(:first-child) {
+        padding-top: rem(15);
+      }
+    }
+    font-family: "Montserrat";
+    font-weight: 500;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width: em(600)) {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+  // .item-main-section-spoller__name
+  &__name {
+    margin-right: rem(20);
+    @media (max-width: em(600)) {
+      margin-bottom: rem(12);
+    }
+  }
+  // .item-main-section-spoller__price
+  &__price {
+    text-align: right;
+    @media (max-width: em(600)) {
+      font-weight: 700;
     }
   }
 }
@@ -404,7 +468,207 @@ section:first-child {
     line-height: 160%;
   }
 }
-
+.specialist .body-main-section__link {
+  display: inline-flex;
+}
+.tabs-main-section {
+  // .tabs-main-section__navigation
+  &__navigation {
+    overflow-x: auto;
+    width: auto;
+    display: flex;
+    padding-bottom: rem(15);
+    @include adaptiveValue("margin-bottom", 50, 15);
+  }
+  // .tabs-main-section__title
+  &__title {
+    &._tab-active {
+      background: $grayLightColor;
+      border: none;
+      color: $mainColor;
+    }
+    white-space: nowrap;
+    font-weight: 700;
+    line-height: 140%;
+    &:not(:last-child) {
+      margin-right: rem(40);
+    }
+    padding: rem(10) rem(20);
+    @media (max-width: $mobile) {
+      color: $grayMainColor;
+      border: 1px solid $grayColor;
+    }
+  }
+  // .tabs-main-section__content
+  &__content {
+    overflow: hidden;
+  }
+  // .tabs-main-section__body
+  &__body {
+    animation: fadeInFromNone 0.3s ease;
+  }
+  // .tabs-main-section__short-descr
+  &__short-descr {
+    @include adaptiveValue("margin-bottom", 60, 30);
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      justify-content: start;
+    }
+  }
+  // .tabs-main-section__spec-descr
+  &__spec-descr {
+    margin-right: rem(20);
+    @media (max-width: $mobile) {
+      margin-bottom: rem(16);
+    }
+  }
+  // .tabs-main-section__name-spec
+  &__name-spec {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: rem(24);
+    line-height: 140%;
+    margin-bottom: rem(20);
+  }
+  // .tabs-main-section__descr
+  &__descr {
+    font-size: rem(16);
+    line-height: 140%;
+  }
+  // .tabs-main-section__paragraph
+  &__paragraph {
+  }
+  // .tabs-main-section__pay
+  &__pay {
+    font-family: "Montserrat";
+    font-size: rem(16);
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    @media (max-width: $mobile) {
+      align-items: start;
+      font-weight: 600;
+    }
+  }
+  // .tabs-main-section__text
+  &__text {
+  }
+  // .tabs-main-section__price
+  &__price {
+    white-space: nowrap;
+    line-height: 140%;
+    font-weight: 500;
+    font-size: rem(24);
+    @media (max-width: $mobile) {
+      font-weight: 700;
+      font-size: rem(48);
+      line-height: 120%;
+    }
+  }
+  // .tabs-main-section__options
+  &__options {
+    margin-top: rem(15);
+  }
+  // .tabs-main-section__item
+  &__item {
+  }
+}
+.item-tabs-main-section {
+  &:not(:last-child) {
+    margin-bottom: rem(30);
+  }
+  // .item-tabs-main-section__title
+  &__title {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: rem(16);
+    line-height: 140%;
+    padding-bottom: rem(13);
+    border-bottom: 2px solid $grayColor;
+    margin-bottom: rem(35);
+    @media (max-width: $mobile) {
+      margin-bottom: 20px;
+    }
+  }
+  // .item-tabs-main-section__list
+  &__list {
+  }
+  // .item-tabs-main-section__li
+  &__li {
+    font-size: rem(16);
+    line-height: 140%;
+    list-style: disc;
+    margin-left: rem(20);
+  }
+}
+.half-part-section {
+  // .half-part-section__list
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+  // .half-part-section__item
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    @media (max-width:$mobile){
+      grid-template-columns: 1fr;
+      gap: rem(16);
+    }
+    gap: rem(60);
+    &:not(:first-child) {
+      padding: rem(60) 0;
+    }
+    border-bottom: 1px solid $grayColor;
+    &:first-child{
+      padding-bottom: rem(60);
+    }
+  }
+  // .half-part-section__title
+  &__title {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: rem(24);
+    line-height: 140%;
+  }
+  // .half-part-section__info
+  &__info {
+    .shop-address {
+      white-space: normal;
+    }
+    a {
+      text-transform: none;
+      justify-self: flex-start;
+      text-transform: none;
+      display: flex;
+      align-items: center;
+      &:not(:last-child) {
+        margin-bottom: rem(20);
+      }
+    }
+    .social-links {
+      display: grid;
+      align-items: center;
+      grid-auto-flow: column;
+      gap: rem(20);
+      justify-content: start;
+      a {
+        
+        color: $accentColor;
+        font-size: rem(24);
+        margin-bottom: 0
+      }
+    }
+  }
+}
+.contacts {
+  // .contacts__email
+  &__email {
+  }
+}
 .filter {
   @include adaptiveValue("margin-bottom", 60, 32);
   overflow-x: auto;
@@ -439,6 +703,33 @@ section:first-child {
         scale: 1.1;
       }
     }
+  }
+}
+
+.prices__container {
+  display: flex;
+  flex-direction: column;
+}
+.prices__btn {
+  display: inline-block;
+  margin: rem(60) auto 0;
+  @media (max-width: $mobile) {
+    margin: rem(32) 0 0 0;
+  }
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    opacity: 0;
+    // margin-left: 100px;
+    transform: translateX(100px);
+    // transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+    transform: translateX(0px);
+    // transform: scale(1);
   }
 }
 

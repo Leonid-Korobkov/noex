@@ -1,0 +1,45 @@
+.page {
+  .page-header-info__body {
+    border: none;
+  }
+  // .page__error
+  &__error {
+  }
+}
+.error {
+  // .error__container
+  &__container {
+  }
+  // .error__body
+  &__body {
+    text-align: center;
+    margin-top: rem(-140);
+    padding: rem(140) 0;
+  }
+  // .error__title
+  &__title {
+    font-family: "Montserrat";
+    font-weight: 700;
+    @include adaptiveValue("font-size", 288, 144);
+    line-height: 120%;
+    text-transform: uppercase;
+  }
+  // .error__subtitle
+  &__subtitle {
+    font-family: "Montserrat";
+    font-weight: 700;
+    @include adaptiveValue("font-size", 36, 24);
+    line-height: 120%;
+    text-transform: uppercase;
+    margin-bottom: rem(60);
+  }
+  // .error__btn
+  &__btn {
+    display: inline-block;
+  }
+}
+.btn {
+  // .btn_yellow
+  &_yellow {
+  }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Контакты"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+
+      <section class="page__header-info page-header-info">
+        <div class="page-header-info__container">
+          <div class="page-header-info__body">
+            <div class="page-header-info__title">Контакты</div>
+            <a href="index.html" class="page-header-info__back-link _icon-arrow-right">На главную</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="page__connections connections">
+        <div class="connections__container">
+          <div class="half-part-section">
+            <ul class="half-part-section__list">
+              <li class="half-part-section__item">
+                <div class="half-part-section__title">По вопросам новых проектов</div>
+                <div class="half-part-section__info">
+                  <a href="mailto:noeks@yandex.ru"
+                    class="contacts__email mail-address btn_link _icon-email"><span>noeks@yandex.ru</span></a>
+                </div>
+              </li>
+              <li class="half-part-section__item">
+                <div class="half-part-section__title">По вопросам сотрудничества</div>
+                <div class="half-part-section__info">
+                  <a href="mailto:info@yandex.ru"
+                    class="contacts__email mail-address btn_link _icon-email"><span>info@yandex.ru</span></a>
+                  <a href="tel:+74957550229" class="contacts__phone phone-number _icon-phone btn_link"><span>+7 (495)
+                      755-02-29</span></a>
+                </div>
+              </li>
+              <li class="half-part-section__item">
+                <div class="half-part-section__title">Телефон</div>
+                <div class="half-part-section__info">
+                  <a href="tel:+74957550229" class="contacts__phone phone-number _icon-phone btn_link"><span>+7 (495)
+                      755-02-29</span></a>
+                </div>
+              </li>
+              <li class="half-part-section__item">
+                <div class="half-part-section__title">Адрес</div>
+                <div class="half-part-section__info">
+                  <a href="#" target="_blank" class="contacts__location shop-address _icon-home">г. Москва, ул.
+                    Новочеремушкинская, 52к2</a>
+                </div>
+              </li>
+              <li class="half-part-section__item">
+                <div class="half-part-section__title">Мы в социальных сетях</div>
+                <div class="half-part-section__info">
+                  <div class="social-links">
+                    <a href="#" class="_icon-facebook"></a>
+                    <a href="#" class="_icon-vk"></a>
+                    <a href="#" class="_icon-instagram"></a>
+                    <a href="#" class="_icon-telegram"></a>
+                    <a href="#" class="_icon-whatsapp"></a>
+                  </div>
+                </div>
+              </li>
+              <li class="half-part-section__item">
+                <div class="half-part-section__title">Мы на карте</div>
+                <div class="half-part-section__info">
+                  <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aff2062f4cb3b257fc2fc157bec20689df7de4907e95ff73860152293061b3ff1&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="page__contacts contacts">
+        <div class="contacts__container">
+          <h4 class="contacts__title _title">Связаться с нами</h4>
+          <div class="contacts__body">
+            <form class="contacts__form form-contact">
+              <label class="form-contact__label">
+                <span>Имя</span>
+                <input class="form-contact__input form-contact__name" type="text" name="name" placeholder="Введите имя">
+              </label>
+              <label class="form-contact__label">
+                <span>Номер телефона</span>
+                <input class="form-contact__input form-contact__phone" type="tel" name="phone"
+                  placeholder="+7 (---) --- -- --">
+              </label>
+              <label class="form-contact__label">
+                <span>Текст сообщения (необязательно)</span>
+                <input class="form-contact__input form-contact__message" type="text" name="message"
+                  placeholder="Введите текст">
+              </label>
+              <button type="submit" class="form-contact__btn btn">Отправить</button>
+            </form>
+            <div class="contacts__info">
+              <div class="contacts__paragraph">
+                Напишите нам, если у Вас есть вопросы. Мы ответим Вам в самое ближайшее время (в течении 1 часа). Также
+                вы можете описать в сообщении суть вопроса, это поможет нам более оперативно справиться с вашей
+                проблемой
+              </div>
+              <address class="contacts__address">
+                <a href="tel:+74957550229" class="contacts__phone phone-number _icon-phone btn_link"><span>+7 (495)
+                    755-02-29</span></a>
+                <a href="mailto:noeks@yandex.ru"
+                  class="contacts__email mail-address btn_link _icon-email"><span>noeks@yandex.ru</span></a>
+                <a href="#" target="_blank" class="contacts__location shop-address _icon-home">г. Москва, ул.
+                  Новочеремушкинская, 52к2</a>
+              </address>
+              <div class="contacts__agree">Нажимая на кнопку, Вы принимаете <a href="#"
+                  class="contacts__link btn_link"><span>Положение</span></a> и
+                <a href="#" class="contacts__link btn_link"><span>Согласие</span></a> на обработку персональных данных
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_popup.htm',{})
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

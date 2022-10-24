@@ -1,0 +1,5 @@
+.page {
+  &__advantages {
+    @include adaptiveValue("margin-top", 160, 60);
+  }
+}

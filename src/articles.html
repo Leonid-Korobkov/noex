@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Статьи"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+
+      <section class="page__header-info page-header-info">
+        <div class="page-header-info__container">
+          <div class="page-header-info__body">
+            <div class="page-header-info__title">Статьи</div>
+            <a href="index.html" class="page-header-info__back-link _icon-arrow-right">На главную</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="page__articles articles">
+        <div class="articles__container">
+          <ul class="articles__list">
+            <li class="articles__item item-articles">
+              <a href="#" class="item-articles__img">
+                <img src="@img/articles/01.jpg" alt="Картинка">
+              </a>
+              <div class="item-articles__title">Наши преимущества при инженерно-экологических изысканиях</div>
+              <div class="item-articles__text">Выбрав нашу компанию для проведения инженерно-экологических изысканий вы получаете следующие преимущества...</div>
+              <a href="#" class="btn_link item-articles__link"><span>Подробнее</span></a>
+            </li>
+            <li class="articles__item item-articles">
+              <a href="#" class="item-articles__img">
+                <img src="@img/articles/02.jpg" alt="Картинка">
+              </a>
+              <div class="item-articles__title">Инженерно-геологические изыскания для высотного строительства на территории...</div>
+              <div class="item-articles__text">Вы можете получить бесплатную консультацию по вопросам изысканий для высотного объекта. Узнайте почему для геологических изысканий в Москве клиенты...</div>
+              <a href="#" class="btn_link item-articles__link"><span>Подробнее</span></a>
+            </li>
+            <li class="articles__item item-articles">
+              <a href="#" class="item-articles__img">
+                <img src="@img/articles/03.jpg" alt="Картинка">
+              </a>
+              <div class="item-articles__title">Геологические изыскания при строительстве сооружений ММДЦ «Москва-Сити»</div>
+              <div class="item-articles__text">Комплекс подземных конструкций ММДЦ «Москва-Сити» представляет собой сложную систему, все элементы которого технологически увязаны друг с другом. Высотны...</div>
+              <a href="#" class="btn_link item-articles__link"><span>Подробнее</span></a>
+            </li>
+          </ul>
+          <div class="articles__pagging pagging">
+            <a href="#" class="pagging__arrow pagging__arrow_left _icon-arrow-right"></a>
+            <ul class="pagging__list" data-da=".articles__pagging, 500">
+              <li>
+                <a href="#" class="pagging__item _active">1</a>
+              </li>
+              <li>
+                <a href="#" class="pagging__item">2</a>
+              </li>
+              <li>
+                <a href="#" class="pagging__item">3</a>
+              </li>
+              <li>
+                <a href="#" class="pagging__item">...</a>
+              </li>
+              <li>
+                <a href="#" class="pagging__item">5</a>
+              </li>
+            </ul>
+            <a href="#" class="pagging__arrow pagging__arrow_right _icon-arrow-right"></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_popup.htm',{})
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

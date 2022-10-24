@@ -70,10 +70,12 @@ body {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
-	overflow: hidden;
+	// overflow: hidden;
 	// Прижимаем footer
 	> main {
 		flex: 1 1 auto;
+		overflow: hidden;
+
 	}
 	// Фикс для слайдеров
 	> * {
@@ -153,3 +155,9 @@ html {
 @import "projects";
 @import "single-project";
 @import "about";
+@import "services";
+@import "single-service";
+@import "articles";
+@import "single-article";
+@import "jobs";
+@import "404";
