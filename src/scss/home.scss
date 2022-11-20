@@ -570,6 +570,7 @@
   }
   // .working-slider-mini__wrapper
   &__wrapper {
+    transform: none !important;
     @media (min-width: em(850)) {
       position: relative;
       &::after {
@@ -937,9 +938,60 @@
       border-bottom: 1px solid $accentColor;
     }
   }
+  // .form-estimate__wrapper-upload
+  &__wrapper-upload {
+    position: relative;
+  }
+  // .form-estimate__label
+  &__label {
+    display: grid;
+    gap: rem(20);
+    align-items: center;
+    justify-content: start;
+    grid-auto-flow: column;
+    position: relative;
+    font-weight: 500;
+    font-size: rem(18);
+    line-height: 140%;
+    margin-bottom: rem(20);
+    cursor: pointer;
+  }
   // .form-estimate__file
   &__file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    position: absolute;
+    z-index: -10;
+  }
+
+  // .form-estimate__file-list
+  &__file-list {
+    display: grid;
+    gap: rem(10);
     margin-bottom: rem(40);
+  }
+  // .form-estimate__file-item
+  &__file-item {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: $accentColor;
+    span {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: rem(-2);
+        right: 0;
+        background: $accentColor;
+        height: 1.6px;
+      }
+    }
+  }
+  // .form-estimate__file-name
+  &__file-name {
   }
 }
 //! contacts (14 блок)
@@ -949,20 +1001,20 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: rem(60);
-    @media (max-width: em(1100)){
+    @media (max-width: em(1100)) {
       gap: rem(30);
     }
-    @media (max-width:$tablet){
+    @media (max-width: $tablet) {
       grid-template-columns: 1fr 1fr;
     }
-    @media (max-width:$mobile){
+    @media (max-width: $mobile) {
       grid-template-columns: 1fr;
     }
   }
   // .contacts__form
   &__form {
     grid-column: 2 / 3;
-    @media (max-width:$tablet){
+    @media (max-width: $tablet) {
       grid-column: 1;
     }
   }

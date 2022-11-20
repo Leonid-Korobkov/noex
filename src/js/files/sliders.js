@@ -10,7 +10,6 @@
 import Swiper, {
   Navigation,
   Pagination,
-  EffectFade,
   Parallax,
   Autoplay,
   Controller,
@@ -36,7 +35,7 @@ function initSliders() {
   // Перечень слайдеров
   if (document.querySelector('.main-slider__slider')) {
     const mainSlider = new Swiper('.main-slider__slider', {
-      modules: [Navigation, Pagination, EffectFade, Parallax, Autoplay],
+      modules: [Navigation, Pagination, Parallax, Autoplay],
       observer: true,
       observeParents: true,
       slidesPerView: 1,
@@ -50,7 +49,6 @@ function initSliders() {
         clickable: true,
         type: 'bullets'
       },
-      effect: 'fade',
       autoplay: {
         delay: 5000,
         disableOnInteraction: false
@@ -114,7 +112,7 @@ function initSliders() {
       observeParents: true,
       slidesPerView: 'auto',
       spaceBetween: 0,
-      
+
       breakpoints: {
         320: {
           direction: 'horizontal'
@@ -144,7 +142,7 @@ function initSliders() {
       loop: true,
       autoplay: {
         delay: 3000,
-        disableOnInteraction: false
+        // disableOnInteraction: false
       },
       navigation: {
         prevEl: '.projects-slider-mini__button_prev',
@@ -152,8 +150,7 @@ function initSliders() {
       },
       thumbs: {
         swiper: {
-          el: '.projects-slider-mini',
-          
+          el: '.projects-slider-mini'
         }
       },
 
@@ -190,6 +187,7 @@ function initSliders() {
       observer: true,
       observeParents: true,
       spaceBetween: 0,
+      // loop: true,
       breakpoints: {
         320: {
           direction: 'horizontal',
@@ -207,22 +205,22 @@ function initSliders() {
   if (document.querySelector('.working-slider')) {
     // let projectMiniSlider = document.querySelector('.main-slider__slider')
     const workingSlider = new Swiper('.working-slider', {
-      modules: [Navigation, Parallax, Autoplay, Thumbs, EffectFade],
+      modules: [Navigation, Parallax, Autoplay, Thumbs],
       observer: true,
       observeParents: true,
       slidesPerView: 'auto',
       spaceBetween: 0,
       parallax: true,
-      effect: 'fade',
-      // autoplay: {
-      //   delay: 5000,
-      //   disableOnInteraction: false
-      // },
+      // effect: 'fade',
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
       thumbs: {
         swiper: {
           el: '.working-slider-mini',
           multipleActiveThumbs: true,
-          autoScrollOffset: 1,
+          autoScrollOffset: 1
         }
       },
       navigation: {

@@ -84,9 +84,21 @@ section:first-child {
   min-width: 210px;
   min-height: 46px;
   text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  @media (any-hover: hover){
+    &:hover{
+      background: darken($primaryBtnColor, 10%);
+    }
+  }
 }
 .btn_green {
   background: $secondaryBtnColor;
+  @media (any-hover: hover){
+    &:hover{
+      background: darken($secondaryBtnColor, 10%);
+    }
+  }
 }
 .btn_link {
   font-weight: 700;
@@ -684,11 +696,33 @@ section:first-child {
   }
   // .filter__item
   &__item {
+    cursor: pointer;
     white-space: nowrap;
     padding: rem(10) rem(20);
     &_active {
       background: $grayLightColor;
     }
+  }
+}
+.background {
+  position: relative;
+  transition: all 0.3s ease 0s;
+  &::after{
+    content:'';
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: #fff;
+  }
+}
+.click-filter-item {
+  &::after{
+    content:'';
+    opacity: 1;
   }
 }
 

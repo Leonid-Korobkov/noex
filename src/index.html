@@ -7,7 +7,7 @@
 <body>
 	<div class="wrapper">
 		@@include('html/_header.htm',{})
-		<main class="page page_overflow-visible">
+		<main class="page">
 			<section class="page__main-slider main-slider">
 				<div class="main-slider__slider swiper">
 					<div class="main-slider__wrapper swiper-wrapper">
@@ -332,7 +332,7 @@
 										<img src="@img/project/atk.jpg" alt="moscow city">
 									</a>
 									<div class="projects-slider__text">
-										<div class="projects-slider__title">2013-2014</div>
+										<div class="projects-slider__title">АТК на Кутузовском</div>
 										<div class="projects-slider__date">2013</div>
 									</div>
 									<a href="#" class="projects-slider__link btn_link">Подробнее</a>
@@ -691,14 +691,20 @@
 							</div>
 							<div class="estimate__item">
 								<div class="estimate__item-title">Загрузите техническое задание (если есть)</div>
-								<div class="estimate__item-files">DOC, DOCX, TXT, OFC</div>
+								<div class="estimate__item-files">DOC, DOCX, TXT, OFC, PDF</div>
 							</div>
 						</div>
 						<div class="estimate__column-right">
 							<form class="estimate__form form-estimate" action="#">
 								<input type="tel" name="phone" placeholder="+7 (---) --- -- --" class="form-estimate__phone">
-								<input type="file" name="file" class="form-estimate__file">
-								<button type="submit" class="form-estimate__btn btn">Рассчитать смету</button>
+								<div class="form-estimate__wrapper-upload">
+									<input type="file" name="file" id="form-estimate__file" class="form-estimate__file" accept=".doc, .docx, .txt, .pdf, .ofc"
+										multiple>
+									<label for="form-estimate__file" class="form-estimate__label"><img src="@img/icons/icon/download-file.svg" alt=""><span>Загрузить файл</span></label>
+									<ul class="form-estimate__file-list">
+									</ul>
+								</div>
+								<button type="button" class="form-estimate__btn btn">Рассчитать смету</button>
 							</form>
 						</div>
 					</div>
