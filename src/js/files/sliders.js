@@ -7,14 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, {
-  Navigation,
-  Pagination,
-  Parallax,
-  Autoplay,
-  Controller,
-  Thumbs
-} from 'swiper'
+import Swiper, { Navigation, Pagination, Parallax, Autoplay, Controller, Thumbs, EffectFade } from 'swiper'
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -75,17 +68,11 @@ function initSliders() {
         }
       }
     })
-    let mySliderNumberNullCurrent = document.querySelector(
-      '.main-slider__number-null-current'
-    )
-    let mySliderNumberNullTotal = document.querySelector(
-      '.main-slider__number-null-total'
-    )
+    let mySliderNumberNullCurrent = document.querySelector('.main-slider__number-null-current')
+    let mySliderNumberNullTotal = document.querySelector('.main-slider__number-null-total')
 
     let mySliderAllSlides = document.querySelector('.main-slider__total-num')
-    let mySliderCurrentSlide = document.querySelector(
-      '.main-slider__current-num'
-    )
+    let mySliderCurrentSlide = document.querySelector('.main-slider__current-num')
 
     if (mainSlider.slides.length - 2 >= 10) {
       mySliderNumberNullTotal.remove()
@@ -105,30 +92,30 @@ function initSliders() {
     mainSlider.on('slideChange', currentSlideCount)
   }
   // ! Мини слайдер (projects)
-  if (document.querySelector('.projects-slider-mini')) {
-    // let projectSlider = document.querySelector('.projects-slider')
-    const projectMiniSlider = new Swiper('.projects-slider-mini', {
-      observer: true,
-      observeParents: true,
-      slidesPerView: 'auto',
-      spaceBetween: 0,
+  // if (document.querySelector('.projects-slider-mini')) {
+  //   // let projectSlider = document.querySelector('.projects-slider')
+  //   const projectMiniSlider = new Swiper('.projects-slider-mini', {
+  //     observer: true,
+  //     observeParents: true,
+  //     slidesPerView: 'auto',
+  //     spaceBetween: 0,
 
-      breakpoints: {
-        320: {
-          direction: 'horizontal'
-          // slidesPerView: 'auto',
-          // loop: true
-          // autoScrollOffset: 1
-          // slidesPerView: 3
-        },
-        850: {
-          loop: false,
-          direction: 'vertical'
-          // slidesPerView: 'auto'
-        }
-      }
-    })
-  }
+  //     breakpoints: {
+  //       320: {
+  //         direction: 'horizontal'
+  //         // slidesPerView: 'auto',
+  //         // loop: true
+  //         // autoScrollOffset: 1
+  //         // slidesPerView: 3
+  //       },
+  //       850: {
+  //         loop: false,
+  //         direction: 'vertical'
+  //         // slidesPerView: 'auto'
+  //       }
+  //     }
+  //   })
+  // }
   // ! Главный слайдер (projects)
   if (document.querySelector('.projects-slider')) {
     // let projectMiniSlider = document.querySelector('.main-slider__slider')
@@ -136,71 +123,98 @@ function initSliders() {
       modules: [Navigation, Autoplay, Thumbs],
       observer: true,
       observeParents: true,
-      slidesPerView: 'auto',
-      spaceBetween: 62,
+      slidesPerView: 2,
+      spaceBetween: 30,
       speed: 800,
-      loop: true,
+      // loop: true,
       autoplay: {
-        delay: 3000,
-        // disableOnInteraction: false
+        delay: 3000
       },
       navigation: {
         prevEl: '.projects-slider-mini__button_prev',
         nextEl: '.projects-slider-mini__button_next'
       },
-      thumbs: {
-        swiper: {
-          el: '.projects-slider-mini'
-        }
-      },
+      // thumbs: {
+      //   swiper: {
+      //     el: '.projects-slider-mini'
+      //   }
+      // },
 
       breakpoints: {
         320: {
           speed: 300,
           navigation: false,
-          spaceBetween: 10
+          spaceBetween: 10,
+          slidesPerView: 1
         },
         650: {
           speed: 500,
-          // slidesPerView: 2,
+          slidesPerView: 2,
           spaceBetween: 10
         },
         850: {
           speed: 600,
           spaceBetween: 40,
-          loop: false,
+          slidesPerView: 1,
+
+          // loop: false,
           navigation: {
             prevEl: '.projects-slider-mini__button_prev ',
             nextEl: '.projects-slider-mini__button_next'
           }
         },
-        1300: {
-          spaceBetween: 62
+        1000: {
+          slidesPerView: 2
         }
       }
     })
+
+    //! Связь с маленьким слайдером
+    function sliderToggle() {
+      const projectsSliderMini = document.querySelector('.projects__slider-mini')
+      const listSlideMini = projectsSliderMini.querySelectorAll('.projects-slider-mini__slide')
+      listSlideMini[0].firstElementChild.classList.add('projects-slider-mini__title_active')
+
+      for (let index = 0; index < listSlideMini.length; index++) {
+        listSlideMini[index].addEventListener('click', function () {
+          listSlideMini.forEach((slide) => {
+            slide.firstElementChild.classList.remove('projects-slider-mini__title_active')
+          })
+          listSlideMini[index].firstElementChild.classList.add('projects-slider-mini__title_active')
+          projectSlider.slideTo(index)
+        })
+      }
+
+      projectSlider.on('slideChange', function () {
+        listSlideMini.forEach((slide) => {
+          slide.firstElementChild.classList.remove('projects-slider-mini__title_active')
+        })
+        listSlideMini[projectSlider.activeIndex].firstElementChild.classList.add('projects-slider-mini__title_active')
+      })
+    }
+    sliderToggle()
   }
 
   // ! Мини слайдер (working)
-  if (document.querySelector('.working-slider-mini')) {
-    const workingMiniSlider = new Swiper('.working-slider-mini', {
-      observer: true,
-      observeParents: true,
-      spaceBetween: 0,
-      // loop: true,
-      breakpoints: {
-        320: {
-          direction: 'horizontal',
-          slidesPerView: 'auto',
-          spaceBetween: 80
-        },
-        850: {
-          direction: 'vertical',
-          slidesPerView: 'auto'
-        }
-      }
-    })
-  }
+  // if (document.querySelector('.working-slider-mini')) {
+  //   const workingMiniSlider = new Swiper('.working-slider-mini', {
+  //     observer: true,
+  //     observeParents: true,
+  //     spaceBetween: 0,
+  //     // loop: true,
+  //     breakpoints: {
+  //       320: {
+  //         direction: 'horizontal',
+  //         slidesPerView: 'auto',
+  //         spaceBetween: 80
+  //       },
+  //       850: {
+  //         direction: 'vertical',
+  //         slidesPerView: 'auto'
+  //       }
+  //     }
+  //   })
+  // }
   // ! Главный слайдер (working)
   if (document.querySelector('.working-slider')) {
     // let projectMiniSlider = document.querySelector('.main-slider__slider')
@@ -208,21 +222,20 @@ function initSliders() {
       modules: [Navigation, Parallax, Autoplay, Thumbs],
       observer: true,
       observeParents: true,
-      slidesPerView: 'auto',
+      slidesPerView: 1,
       spaceBetween: 0,
       parallax: true,
       // effect: 'fade',
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-      },
-      thumbs: {
-        swiper: {
-          el: '.working-slider-mini',
-          multipleActiveThumbs: true,
-          autoScrollOffset: 1
-        }
-      },
+      // autoplay: {
+      //   delay: 5000,
+      // },
+      // thumbs: {
+      //   swiper: {
+      //     el: '.working-slider-mini',
+      //     multipleActiveThumbs: true,
+      //     autoScrollOffset: 1
+      //   }
+      // },
       navigation: {
         prevEl: '.working-slider__button_prev',
         nextEl: '.working-slider__button_next'
@@ -239,6 +252,30 @@ function initSliders() {
         }
       }
     })
+
+    function sliderToggle() {
+      const workingSliderMini = document.querySelector('.working__slider-mini')
+      const listSlideMini = workingSliderMini.querySelectorAll('.working-slider-mini__slide')
+      listSlideMini[0].classList.add('working-slider-mini__slide_active')
+
+      for (let index = 0; index < listSlideMini.length; index++) {
+        listSlideMini[index].addEventListener('click', function () {
+          listSlideMini.forEach((slide) => {
+            slide.classList.remove('working-slider-mini__slide_active')
+          })
+          listSlideMini[index].classList.add('working-slider-mini__slide_active')
+          workingSlider.slideTo(index)
+        })
+      }
+
+      workingSlider.on('slideChange', function () {
+        listSlideMini.forEach((slide) => {
+          slide.classList.remove('working-slider-mini__slide_active')
+        })
+        listSlideMini[workingSlider.activeIndex].classList.add('working-slider-mini__slide_active')
+      })
+    }
+    sliderToggle()
   }
 }
 
@@ -248,8 +285,7 @@ function initSlidersScroll() {
   if (sliderScrollItems.length > 0) {
     for (let index = 0; index < sliderScrollItems.length; index++) {
       const sliderScrollItem = sliderScrollItems[index]
-      const sliderScrollBar =
-        sliderScrollItem.querySelector('.swiper-scrollbar')
+      const sliderScrollBar = sliderScrollItem.querySelector('.swiper-scrollbar')
       const sliderScroll = new Swiper(sliderScrollItem, {
         observer: true,
         observeParents: true,

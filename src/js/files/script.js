@@ -25,24 +25,13 @@ document.addEventListener('scroll', function () {
             }
           })
 
-          document
-            .querySelectorAll(navigationItem)
-            [i].querySelector('a')
-            .classList.add('active')
+          document.querySelectorAll(navigationItem)[i].querySelector('a').classList.add('active')
         }
       })
     }
   }
-  activeClassItem(
-    '.item-service-info',
-    '.navigation-service-info__link',
-    '.navigation-service-info__item'
-  )
-  activeClassItem(
-    '.item-single-article',
-    '.navigation-single-article__link',
-    '.navigation-single-article__item'
-  )
+  activeClassItem('.item-service-info', '.navigation-service-info__link', '.navigation-service-info__item')
+  activeClassItem('.item-single-article', '.navigation-single-article__link', '.navigation-single-article__item')
 })
 
 //! Кастомизация file и работа с ним
@@ -75,9 +64,7 @@ if (document.querySelector('.form-estimate__file')) {
 
   function removeFilesItem(element) {
     let name = element.previousElementSibling.textContent
-    let input = element
-      .closest('.form-estimate__wrapper-upload')
-      .querySelector('input[type=file]')
+    let input = element.closest('.form-estimate__wrapper-upload').querySelector('input[type=file]')
     element.closest('.form-estimate__file-item').remove()
     for (let i = 0; i < dt.items.length; i++) {
       if (name === dt.items[i].getAsFile().name) {
@@ -90,16 +77,10 @@ if (document.querySelector('.form-estimate__file')) {
 
 //! Фильтрация проектов по годам
 function filterElements(list, item, itemDate, property) {
-  if (
-    document.querySelector(list) &&
-    document.querySelector(item) &&
-    document.querySelector(itemDate)
-  ) {
+  if (document.querySelector(list) && document.querySelector(item) && document.querySelector(itemDate)) {
     const filterItemsList = document.querySelector(list)
     filterItemsList.classList.add('background')
-    const paddingTop = window
-      .getComputedStyle(document.querySelector(item))
-      .getPropertyValue('padding-bottom')
+    const paddingTop = window.getComputedStyle(document.querySelector(item)).getPropertyValue('padding-bottom')
     document.querySelector('.filter').addEventListener('click', function (e) {
       filterItemsList.classList.add('click-filter-item')
       setTimeout(() => {
@@ -112,19 +93,19 @@ function filterElements(list, item, itemDate, property) {
           targetElement.classList.add('filter__item_active')
           const filterItems = document.querySelectorAll(item)
           //! Показ/скрытие элементов и обнуление отступа у первого элемента
-          filterItems.forEach((item) => {
+          filterItems.forEach((item, index) => {
             const filterItemDate = item.querySelector(itemDate)
             item.classList.remove('show')
             if (targetElement.classList.contains('filter-all-items')) {
               item.style.display = property
-              item.style.paddingTop = paddingTop
+              if (index != 0) {
+                item.style.paddingTop = paddingTop
+              }
               return
             }
             const isTrueNumber =
-              Number(filterItemDate.textContent.substring(0, 4)) >=
-                Number(targetElement.textContent.substring(0, 4)) &&
-              Number(filterItemDate.textContent.substring(0, 4)) <
-                Number(targetElement.textContent.slice(5, 9))
+              Number(filterItemDate.textContent.substring(0, 4)) >= Number(targetElement.textContent.substring(0, 4)) &&
+              Number(filterItemDate.textContent.substring(0, 4)) < Number(targetElement.textContent.slice(5, 9))
             if (isTrueNumber) {
               item.style.display = property
               item.classList.add('show')
@@ -143,10 +124,5 @@ function filterElements(list, item, itemDate, property) {
     })
   }
 }
-filterElements(
-  '.projects__list',
-  '.projects-item',
-  '.projects-item__date',
-  'flex'
-)
+filterElements('.projects__list', '.projects-item', '.projects-item__date', 'flex')
 filterElements('.project__list', '.project-item', '.project-item__date', 'grid')

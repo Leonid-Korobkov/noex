@@ -396,24 +396,24 @@
     padding-bottom: rem(60);
     // .projects-slider-mini__wrapper
     &__wrapper {
-      transform: none !important;
+      display: flex;
+      flex-direction: column;
     }
-    .swiper-slide-thumb-active {
-      .projects-slider-mini__title {
-        color: $mainColor;
-        background: none;
-        &::before {
-          content: "";
-          position: absolute;
-          left: 0;
-          height: 100%;
-          width: rem(2);
-          background: $accentColor;
-        }
+    .projects-slider-mini__title_active {
+      color: $mainColor;
+      background: none;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: rem(2);
+        background: $accentColor;
       }
     }
     // .projects-slider-mini__title
     &__title {
+      // z-index: -5;
       cursor: pointer;
       transition: all 0.3s ease 0s;
       padding-left: rem(28);
@@ -460,13 +460,17 @@
   }
   margin-bottom: rem(24);
   @media (max-width: em(850)) {
-    .swiper-slide-thumb-active {
-      .projects-slider-mini__title {
-        background: $grayLightColor;
-      }
+    .projects-slider-mini__title_active {
+      background: $grayLightColor;
+    }
+    // .projects-slider-mini__wrapper
+    &__wrapper {
+      overflow-x: auto;
     }
     // .projects-slider-mini__slide
     &__slide {
+      white-space: nowrap;
+      width: auto;
       display: flex;
       @media (max-width: $tablet) {
         width: auto !important;
@@ -493,19 +497,26 @@
     }
   }
 }
+.projects__container_visible {
+  overflow: visible;
+}
 .projects-slider {
   @media (min-width: em(850)) {
-    width: 100vw;
+    // width: 100vw;
+  }
+  // .projects-slider__wrapper
+  &__wrapper {
+    // max-width: 100%;
   }
   // .projects-slider__slide
   &__slide {
     padding-bottom: rem(5);
-    width: 50%;
+    // width: calc(50% - 5px);
     @media (max-width: em(650)) {
-      width: 100%;
+      // width: 100%;
     }
     @media (min-width: em(850)) {
-      max-width: rem(360);
+      // max-width: rem(360);
     }
   }
   // .projects-slider__img
@@ -571,6 +582,9 @@
   // .working-slider-mini__wrapper
   &__wrapper {
     transform: none !important;
+    display: grid;
+    gap: rem(80);
+    overflow-x: auto ;
     @media (min-width: em(850)) {
       position: relative;
       &::after {
@@ -626,7 +640,7 @@
       }
     }
   }
-  .swiper-slide-thumb-active {
+  .working-slider-mini__slide_active {
     .working-slider-mini__number {
       border: 1px solid $accentColor;
       color: $accentColor;
