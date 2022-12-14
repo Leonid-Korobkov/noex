@@ -17,7 +17,7 @@
   &__price {
     line-height: 140%;
     font-weight: 500;
-    color: $accentColor;
+    color: var(--accent-color);
     @include adaptiveValue("margin-bottom", 40, 24);
   }
   // .short-descr-article__img
@@ -98,7 +98,7 @@
       font-weight: 700;
       font-size: rem(16);
       line-height: 140%;
-      color: $grayMainColor;
+      color: var(--gray-main-color);
       padding-left: rem(20);
       position: relative;
       &::before {
@@ -112,9 +112,9 @@
       }
     }
     .active {
-      color: $mainColor;
+      color: var(--main-color);
       &::before {
-        background: $accentColor;
+        background: var(--accent-color);
       }
     }
   }

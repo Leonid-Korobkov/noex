@@ -23,7 +23,7 @@
 .item-articles {
   @media (min-width: em(970)) {
     padding: rem(20);
-    border: 1px solid $grayColor;
+    border: 1px solid var(--gray-color);
   }
   display: flex;
   flex-direction: column;
@@ -68,7 +68,7 @@
   justify-content: center;
   align-items: center;
   gap: rem(45);
-  @media (max-width: em(500)){
+  @media (max-width: em(500)) {
     grid-auto-flow: row;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -91,9 +91,9 @@
     grid-auto-flow: column;
     gap: rem(15);
     ._active {
-      color: $accentColor;
+      color: var(--accent-color);
     }
-    @media (max-width: em(500)){
+    @media (max-width: em(500)) {
       justify-self: center;
       grid-column: span 2;
     }

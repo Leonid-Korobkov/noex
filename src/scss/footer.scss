@@ -1,6 +1,6 @@
 .footer {
   @include adaptiveValue("margin-top", 138, 30);
-  border-top: 1px solid $grayColor;
+  border-top: 1px solid var(--gray-color);
   padding-top: 32px;
   // .footer__container
   &__container {
@@ -46,7 +46,7 @@
     align-items: center;
     white-space: nowrap;
     &::before {
-      color: $accentColor;
+      color: var(--accent-color);
       margin-right: rem(12);
     }
     @media (max-width: $tablet) {
@@ -74,7 +74,7 @@
     text-align: center;
     padding: rem(30) 0;
     font-size: rem(16);
-    border-top: 1px solid $grayColor;
+    border-top: 1px solid var(--gray-color);
   }
   // .footer__copy-text
   &__copy-text {
@@ -86,7 +86,7 @@
   }
   // .footer-menu__list
   &__list {
-    border-top: 1px solid $grayColor;
+    border-top: 1px solid var(--gray-color);
     display: grid;
     row-gap: rem(15);
     padding-top: rem(32);

@@ -9,7 +9,7 @@
   display: flex;
   &:not(:last-child) {
     padding-bottom: rem(60);
-    border-bottom: 2px solid $grayColor;
+    border-bottom: 2px solid var(--gray-color);
   }
   &:not(:first-child) {
     padding-top: rem(60);

@@ -60,11 +60,11 @@
 //         }
 //         &:focus + .checkbox__fake {
 //             transition: all 0.2s ease 0s;
-//             border: 1px solid rgba($accentColor, $alpha: 1);
-//             box-shadow: 0 0 10px 0 $accentColor;
+//             border: 1px solid rgba(var(--accent-color), $alpha: 1);
+//             box-shadow: 0 0 10px 0 var(--accent-color);
 //         }
 //         &:checked:focus + .checkbox__fake {
-//             border: 1px solid rgba($mainColor, $alpha: 0.38);
+//             border: 1px solid rgba(var(--main-color), $alpha: 0.38);
 //             box-shadow: 0 0 0 0;
 //         }
 //     }
@@ -76,7 +76,7 @@
 //         width: rem(21);
 //         height: rem(21);
 //         flex: 0 0 21px;
-//         border: 1px solid rgba($mainColor, $alpha: 0.38);
+//         border: 1px solid rgba(var(--main-color), $alpha: 0.38);
 //         border-radius: rem(7);
 //         margin-right: rem(13);
 //         &::before {

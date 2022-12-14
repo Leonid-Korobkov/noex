@@ -4,7 +4,7 @@
   @include adaptiveValue("gap", 60, 20, $maxWidthContainer, 768, 1);
   &:not(:last-child) {
     padding-bottom: rem(60);
-    border-bottom: 2px solid $grayColor;
+    border-bottom: 2px solid var(--gray-color);
   }
   &:not(:first-child) {
     padding-top: rem(60);
@@ -31,7 +31,7 @@
   &__title {
     font-weight: 700;
     flex: 1 1 auto;
-    @media (max-width:$mobile){
+    @media (max-width: $mobile) {
       margin-bottom: rem(16);
     }
   }
