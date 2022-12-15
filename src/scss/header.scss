@@ -9,7 +9,7 @@
 	display: flex;
 	min-width: 100%;
 	align-items: center;
-	transition: all 0.3s ease 0s;
+	transition: height 0.5s ease 0s;
 	@media (max-width: $pc) {
 		height: 110px;
 	}
