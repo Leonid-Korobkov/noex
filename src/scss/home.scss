@@ -27,15 +27,14 @@
     display: flex;
     // flex: 1 1 auto;
     position: relative;
-  }
-  // .main-slider__wrapper
-  &__wrapper {
+    min-width: 100vw;
   }
   // .main-slider__slide
   &__slide {
     background: rgb(205, 161, 119);
     // background: url("img/main-slider/01.jpg") top center / cover no-repeat;
     padding-bottom: 165px;
+    min-width: 100vw;
     @media (max-width: $tablet) {
       padding-bottom: rem(100);
     }
@@ -327,25 +326,6 @@
 
 //! projects (4 блок)
 .projects {
-  // .projects__container
-  &__container {
-  }
-  // .projects__titles
-  &__titles {
-    @include adaptiveValue("margin-bottom", 130, 24, $containerWidth, 560);
-    @media (min-width: em(560)) {
-      display: flex;
-      justify-content: space-between;
-      gap: rem(20);
-      max-width: rem(1024);
-    }
-  }
-  // .projects__title
-  &__title {
-  }
-  // .projects__title-numbers
-  &__title-numbers {
-  }
   // .projects__body
   &__body {
     display: grid;
@@ -358,11 +338,15 @@
       gap: 0;
     }
   }
-  // .projects__slider-mini
-  &__slider-mini {
-  }
-  // .projects__slider
-  &__slider {
+  // .projects__titles
+  &__titles {
+    @include adaptiveValue("margin-bottom", 130, 24, $containerWidth, 560);
+    @media (min-width: em(560)) {
+      display: flex;
+      justify-content: space-between;
+      gap: rem(20);
+      max-width: rem(1024);
+    }
   }
 }
 .title-numbers {
@@ -453,9 +437,6 @@
       &_prev {
         transform: rotate(180deg);
       }
-      // .projects-slider-mini__button_next
-      &_next {
-      }
     }
   }
   margin-bottom: rem(24);
@@ -504,10 +485,6 @@
   @media (min-width: em(850)) {
     // width: 100vw;
   }
-  // .projects-slider__wrapper
-  &__wrapper {
-    // max-width: 100%;
-  }
   // .projects-slider__slide
   &__slide {
     padding-bottom: rem(5);
@@ -552,12 +529,6 @@
 //! working (6 блок)
 .working {
   font-family: "Montserrat";
-  // .working__container
-  &__container {
-  }
-  // .working__title
-  &__title {
-  }
   // .working__body
   &__body {
     display: grid;
@@ -565,12 +536,6 @@
     @media (max-width: em(850)) {
       grid-template-columns: 1fr;
     }
-  }
-  // .working__slider-mini
-  &__slider-mini {
-  }
-  // .working__slider
-  &__slider {
   }
 }
 .working-slider-mini {
@@ -690,12 +655,6 @@
   position: relative;
   padding: 0px 100px !important;
   margin: 0px -100px;
-  // .working-slider__wrapper
-  &__wrapper {
-  }
-  // .working-slider__slide
-  &__slide {
-  }
   // .working-slider__title
   &__title {
     font-weight: 500;
@@ -732,17 +691,11 @@
     &_prev {
       transform: rotate(180deg);
     }
-    // .working-slider__button_next
-    &_next {
-    }
   }
 }
 
 //! about-services (7 блок)
 .about-services {
-  // .about-services__container
-  &__container {
-  }
   // .about-services__body
   &__body {
     display: grid;
@@ -752,9 +705,6 @@
     @media (max-width: $mobile) {
       grid-template-columns: 1fr;
     }
-  }
-  // .about-services__item
-  &__item {
   }
 }
 .item-about-services {
@@ -785,9 +735,6 @@
     @media (max-width: $mobile) {
       margin-bottom: rem(16);
     }
-  }
-  // .item-about-services__link
-  &__link {
   }
 }
 
@@ -853,9 +800,6 @@
       width: percent(780, 1200);
     }
     line-height: 160%;
-  }
-  // .item-engin-more__paragraph
-  &__paragraph {
   }
 }
 
@@ -1032,9 +976,6 @@
         height: 1.6px;
       }
     }
-  }
-  // .form-estimate__file-name
-  &__file-name {
   }
 }
 //! contacts (14 блок)
