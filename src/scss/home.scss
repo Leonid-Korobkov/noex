@@ -22,19 +22,21 @@
 //! main-slider (1 блок)
 .main-slider {
   // height: 100%;
+  // min-width: 100vw;
+
   // .main-slider__slider
   &__slider {
     display: flex;
     // flex: 1 1 auto;
     position: relative;
-    min-width: 100vw;
+    // min-width: 100vw;
   }
   // .main-slider__slide
   &__slide {
     background: rgb(205, 161, 119);
     // background: url("img/main-slider/01.jpg") top center / cover no-repeat;
     padding-bottom: 165px;
-    min-width: 100vw;
+    width: 100vw;
     @media (max-width: $tablet) {
       padding-bottom: rem(100);
     }

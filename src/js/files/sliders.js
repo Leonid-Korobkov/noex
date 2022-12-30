@@ -28,7 +28,7 @@ function initSliders() {
   // Перечень слайдеров
   if (document.querySelector('.main-slider__slider')) {
     const mainSlider = new Swiper('.main-slider__slider', {
-      modules: [Navigation, Pagination, Parallax, Autoplay],
+      modules: [Navigation, Pagination,Autoplay],
       observer: true,
       observeParents: true,
       slidesPerView: 1,
